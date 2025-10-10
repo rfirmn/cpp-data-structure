@@ -56,7 +56,7 @@ Anda, sebagai pengguna, hanya peduli dengan operasi remote (menaikkan volume). A
 
 ---
 
-## 3.2 ADT dalam Konteks Python
+## 3.2 ADT dalam Konteks CPP
 
 ### Hubungan ADT dan Data Structure
 | ADT | Contoh Struktur Data di Python |
