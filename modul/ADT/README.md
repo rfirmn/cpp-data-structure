@@ -79,9 +79,53 @@ Anda, sebagai pengguna, hanya peduli dengan operasi remote (menaikkan volume). A
 
 ---
 
-## 3.3 Contoh Implementasi ADT di Python
+## 3.3 Contoh Implementasi ADT di cpp
 ---
-### Contoh 1: Class and Function
+### contoh 1: struct
+
+file .cpp
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Definisi struct Mahasiswa sebagai ADT
+struct Mahasiswa {
+    string nama;
+    int usia;
+    float nilai;
+};
+
+// Fungsi untuk mengisi data mahasiswa
+void setMahasiswa(Mahasiswa &mhs, string nama, int usia, float nilai) {
+    mhs.nama = nama;
+    mhs.usia = usia;
+    mhs.nilai = nilai;
+}
+
+// Fungsi untuk menampilkan data mahasiswa
+void displayMahasiswa(const Mahasiswa &mhs) {
+    cout << "Nama: " << mhs.nama << endl;
+    cout << "Usia: " << mhs.usia << " tahun" << endl;
+    cout << "Nilai: " << mhs.nilai << endl;
+}
+
+int main() {
+    // Membuat objek Mahasiswa
+    Mahasiswa mhs1;
+
+    // Mengisi data mahasiswa
+    setMahasiswa(mhs1, "Budi", 20, 85.5);
+
+    // Menampilkan data mahasiswa
+    displayMahasiswa(mhs1);
+
+    return 0;
+}
+```
+
+---
+### Contoh 2: Class and Function
 
 file .hpp
 ```cpp
@@ -173,7 +217,7 @@ int main() {
 }
 ```
 ---
-### Contoh 2: Queue
+### Contoh 3: Queue
 **Queue** (Antrian) adalah ADT koleksi terurut di mana penambahan elemen baru (operasi `enqueue` atau `insert`) hanya terjadi di satu ujung yang disebut Rear (Belakang), dan penghapusan elemen (operasi `dequeue` atau `remove`) hanya terjadi di ujung yang berlawanan, yang disebut Front (Depan). Queue mengikuti prinsip FIFO (First-In, First-Out)—elemen yang pertama masuk adalah yang pertama keluar.
 
 file .hpp
@@ -304,7 +348,7 @@ int main() {
     return 0;
 }
 ```
-### Contoh 3: Stack
+### Contoh 4: Stack
 
 Stack adalah ADT yang mengikuti prinsip LIFO (Last-In, First-Out) — elemen yang terakhir dimasukkan akan menjadi yang pertama keluar. Stack memiliki dua operasi utama:
 
