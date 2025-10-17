@@ -127,7 +127,7 @@ struct list {
 
 ---
 
-## ⚙️ 4.2.1 Pembentukan Komponen List
+##  4.2.1 Pembentukan Komponen List
 
 ### A. Create List
 
@@ -172,7 +172,7 @@ bool isEmpty(list L) {
 
 ---
 
-## 🔗 4.2.2 Operasi Insert
+##  4.2.2 Operasi Insert
 
 ### A. Insert First
 
@@ -243,6 +243,27 @@ int nbList(list L) {
     return count;
 }
 ```
+## 4.2.4 Fungsi Utama
+
+```cpp
+#include <iostream> 
+#include "list.h"
+using namespace std;
+
+int main() {
+    mahasiswa mhs;
+    cout << "Masukkan nama: ";
+    cin >> mhs.nama;
+    cout << "Masukkan NIM: ";
+    cin >> mhs.nim;
+
+    cout << "Data mahasiswa:\n";
+    cout << "Nama: " << mhs.nama << endl;
+    cout << "NIM : " << mhs.nim << endl;
+}
+
+```
+
 
 ---
 
@@ -310,6 +331,198 @@ Operasi:
 3. `insertAfter(20, 25)` → `[10 | next] -> [20 | next] -> [25 | next] -> [30 | NULL]`
 
 ---
+
+## Single linked list menggunakan OOP
+
+### `Class Single Linked List`
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int info;       // Data yang disimpan dalam node
+    Node* next;     // Pointer ke node berikutnya
+
+    // Constructor untuk inisialisasi data
+    Node(int data) {
+        info = data;
+        next = nullptr;
+    }
+};
+
+class List {
+public:
+    Node* first;   // Pointer ke node pertama (head)
+
+    // Constructor: inisialisasi list kosong
+    List() {
+        first = nullptr;
+    }
+
+    void createList() {
+        first = nullptr;  // List kosong
+    }
+
+    // ============================
+    // 2. createElement(x)
+    // ============================
+    Node* createElement(int x) {
+        return new Node(x);  // Alokasi node baru
+    }
+
+    void insertFirst(Node* P) {
+        if (P != nullptr) {
+            P->next = first;   // Hubungkan node baru ke node pertama
+            first = P;         // Jadikan node baru sebagai head
+        }
+    }
+
+    void insertLast(Node* P) {
+        if (P != nullptr) {
+            if (first == nullptr) {
+                first = P;  // Jika list kosong
+            } else {
+                Node* last = first;
+                while (last->next != nullptr) {
+                    last = last->next;  // Cari node terakhir
+                }
+                last->next = P;  // Tambahkan node baru di akhir
+            }
+        }
+    }
+
+    void printList() {
+        if (first == nullptr) {
+            cout << "List kosong" << endl;
+        } else {
+            Node* current = first;
+            while (current != nullptr) {
+                cout << current->info << " ";
+                current = current->next;
+            }
+            cout << endl;
+        }
+    }
+
+    Node* deleteFirst() {
+        if (first != nullptr) {
+            Node* P = first;
+            first = P->next;
+            P->next = nullptr;
+            return P;
+        }
+        return nullptr;
+    }
+
+    Node* deleteLast() {
+        if (first == nullptr) {
+            return nullptr;  // List kosong
+        }
+        if (first->next == nullptr) {
+            Node* P = first;
+            first = nullptr;
+            return P;  // Hanya satu elemen
+        }
+
+        Node* current = first;
+        while (current->next->next != nullptr) {
+            current = current->next;
+        }
+
+        Node* P = current->next;
+        current->next = nullptr;
+        return P;
+    }
+
+    Node* searchInfo(int x) {
+        Node* current = first;
+        while (current != nullptr && current->info != x) {
+            current = current->next;
+        }
+        return current;  // Jika tidak ditemukan, return nullptr
+    }
+};
+
+int main() {
+    List L;
+    L.createList();
+
+    // Membuat dan menyisipkan beberapa elemen
+    Node* A = L.createElement(10);
+    Node* B = L.createElement(20);
+    Node* C = L.createElement(30);
+
+    L.insertFirst(A);
+    L.insertLast(B);
+    L.insertLast(C);
+
+    cout << "Isi list: ";
+    L.printList();
+
+    // Pencarian
+    int cari = 20;
+    Node* hasil = L.searchInfo(cari);
+    if (hasil != nullptr)
+        cout << "Data " << cari << " ditemukan." << endl;
+    else
+        cout << "Data " << cari << " tidak ditemukan." << endl;
+
+    // Menghapus elemen pertama
+    Node* hapus1 = L.deleteFirst();
+    cout << "Setelah deleteFirst (" << hapus1->info << "): ";
+    L.printList();
+
+    // Menghapus elemen terakhir
+    Node* hapus2 = L.deleteLast();
+    cout << "Setelah deleteLast (" << hapus2->info << "): ";
+    L.printList();
+
+    return 0;
+}
+```
+### `Fungsi utama`
+
+```cpp
+int main() {
+    List L;
+    L.createList();
+
+    // Membuat dan menyisipkan beberapa elemen
+    Node* A = L.createElement(10);
+    Node* B = L.createElement(20);
+    Node* C = L.createElement(30);
+
+    L.insertFirst(A);
+    L.insertLast(B);
+    L.insertLast(C);
+
+    cout << "Isi list: ";
+    L.printList();
+
+    // Pencarian
+    int cari = 20;
+    Node* hasil = L.searchInfo(cari);
+    if (hasil != nullptr)
+        cout << "Data " << cari << " ditemukan." << endl;
+    else
+        cout << "Data " << cari << " tidak ditemukan." << endl;
+
+    // Menghapus elemen pertama
+    Node* hapus1 = L.deleteFirst();
+    cout << "Setelah deleteFirst (" << hapus1->info << "): ";
+    L.printList();
+
+    // Menghapus elemen terakhir
+    Node* hapus2 = L.deleteLast();
+    cout << "Setelah deleteLast (" << hapus2->info << "): ";
+    L.printList();
+
+    return 0;
+}
+
+```
 
 ##  Kesimpulan
 
