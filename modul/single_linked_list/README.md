@@ -99,7 +99,7 @@ struct list {
 
 ### Contoh untuk Data Mahasiswa
 
-## menggunakan file `list.h`
+### menggunakan file `list.h`
 
 ```cpp
 #ifndef LIST_H_INCLUDED
