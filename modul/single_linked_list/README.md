@@ -269,7 +269,7 @@ int nbList(list L) {
 }
 ```
 ## 4.2.4 Fungsi Utama
-
+### file `main.cpp`
 ```cpp
 #include <iostream> 
 #include "list.h"
