@@ -1,4 +1,4 @@
-# Modul 4: Singly Linked List (Bagian Pertama)
+# Modul 4: Singly Linked List
 
 ## 🎯 Tujuan Praktikum
 
