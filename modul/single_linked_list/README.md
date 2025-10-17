@@ -8,6 +8,8 @@
 
 ---
 
+![Single Linked List](https://github.com/user-attachments/assets/30f51dee-e4c5-48e1-8e43-1498c32c14fa)
+
 ## 4.1 Linked List dengan Pointer
 
 Linked list adalah struktur data dinamis yang terdiri dari elemen-elemen yang saling terhubung menggunakan **pointer**. Struktur ini fleksibel karena dapat bertambah atau berkurang sesuai kebutuhan.
