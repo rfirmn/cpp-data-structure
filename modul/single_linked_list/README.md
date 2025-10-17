@@ -273,20 +273,52 @@ int nbList(list L) {
 ```cpp
 #include <iostream> 
 #include "list.h"
+
 using namespace std;
 
 int main() {
-    mahasiswa mhs;
-    cout << "Masukkan nama: ";
-    cin >> mhs.nama;
-    cout << "Masukkan NIM: ";
-    cin >> mhs.nim;
+    list L;
+    
+    // 1. Inisialisasi List
+    createList(L);
+    cout << "List berhasil diinisialisasi." << endl;
 
-    cout << "Data mahasiswa:\n";
-    cout << "Nama: " << mhs.nama << endl;
-    cout << "NIM : " << mhs.nim << endl;
+    // Inisialisasi struct
+    mahasiswa mBudi = {"Budi", "101"};
+    
+    mahasiswa mCitra = {"Citra", "103"};
+    
+    mahasiswa mDoni = {"Doni", "104"};
+
+    // --- Alokasi Node (Address) ---
+    address pBudi = alokasi(mBudi);
+    address pCitra = alokasi(mCitra);
+    address pDoni = alokasi(mDoni);
+    
+    cout << "\n----------------------------------------" << endl;
+    
+    // 2. Insert First: Sisipkan Budi
+    insertFirst(L, pBudi); 
+    cout << "Sisip 'Budi' di Awal." << endl;
+    
+    // 3. Insert Last: Sisipkan Citra
+    insertLast(L, pCitra);
+    cout << "Sisip 'Citra' di Akhir." << endl;
+
+    // 4. Insert First: Sisipkan Doni
+    insertFirst(L, pDoni); 
+    cout << "Sisip 'Doni' di Awal." << endl;
+
+
+    // 6. Tampilkan Hasil Akhir
+    cout << "\n--- Struktur List Akhir ---" << endl;
+    printInfo(L);
+    
+    // 7. Cek Jumlah Elemen
+    cout << "Jumlah total elemen di list: " << nbList(L) << endl; 
+    
+    return 0;
 }
-
 ```
 
 
