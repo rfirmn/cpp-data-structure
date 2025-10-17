@@ -106,8 +106,12 @@ struct list {
 ```cpp
 #ifndef LIST_H_INCLUDED
 #define LIST_H_INCLUDED
-#define Nil NULL
+
+#include <iostream>
+#include <cstring> 
+
 using namespace std;
+
 
 struct mahasiswa {
     char nama[30];
@@ -139,7 +143,7 @@ Membuat list baru dengan `first = Nil`.
 
 ```cpp
 void createList(list &L) {
-    L.first = Nil;
+    L.first = nullptr; 
 }
 ```
 
@@ -151,7 +155,7 @@ Mengalokasikan node baru menggunakan `new`.
 address alokasi(mahasiswa M) {
     address P = new elmlist;
     P->info = M;
-    P->next = Nil;
+    P->next = nullptr; 
     return P;
 }
 ```
@@ -170,7 +174,7 @@ void dealokasi(address P) {
 
 ```cpp
 bool isEmpty(list L) {
-    return (L.first == Nil);
+    return (L.first == nullptr); 
 }
 ```
 
@@ -184,8 +188,10 @@ Menambahkan elemen di awal list.
 
 ```cpp
 void insertFirst(list &L, address P) {
-    P->next = L.first;
-    L.first = P;
+    if (P != nullptr) { 
+        P->next = L.first;
+        L.first = P;
+    }
 }
 ```
 
@@ -195,14 +201,19 @@ Menambahkan elemen di akhir list.
 
 ```cpp
 void insertLast(list &L, address P) {
-    if (L.first == Nil) {
+    if (P == nullptr) {
+        return; 
+    }
+
+    if (L.first == nullptr) { 
         L.first = P;
     } else {
         address Q = L.first;
-        while (Q->next != Nil) {
+        while (Q->next != nullptr) { 
             Q = Q->next;
         }
         Q->next = P;
+        
     }
 }
 ```
@@ -213,8 +224,11 @@ Menambahkan elemen setelah node tertentu.
 
 ```cpp
 void insertAfter(address Prec, address P) {
-    P->next = Prec->next;
-    Prec->next = P;
+    
+    if (Prec != nullptr && P != nullptr) { 
+        P->next = Prec->next;
+        Prec->next = P;
+    }
 }
 ```
 
@@ -227,10 +241,17 @@ Menampilkan seluruh isi node dalam list.
 ```cpp
 void printInfo(list L) {
     address P = L.first;
-    while (P != Nil) {
-        cout << P->info << endl;
+    cout << "--- Isi List Mahasiswa ---" << endl;
+    if (isEmpty(L)) {
+        cout << "List kosong." << endl;
+        return;
+    }
+
+    while (P != nullptr) { 
+        cout << "NIM: " << P->info.nim << ", Nama: " << P->info.nama << endl;
         P = P->next;
     }
+    cout << "--------------------------" << endl;
 }
 ```
 
@@ -240,7 +261,7 @@ Menghitung jumlah elemen dalam list:
 int nbList(list L) {
     int count = 0;
     address P = L.first;
-    while (P != Nil) {
+    while (P != nullptr) { 
         count++;
         P = P->next;
     }
