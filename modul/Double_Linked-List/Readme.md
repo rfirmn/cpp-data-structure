@@ -1,4 +1,4 @@
-# Modul 5: Doubly Linked List
+# Modul 5: Double Linked List
 
 ## 🎯 Tujuan Praktikum
 
