@@ -12,7 +12,7 @@ Modul **“Belajar Stack di C++”** ini dirancang untuk membantu mahasiswa mema
 
 Stack (tumpukan) adalah struktur data linear di mana elemen terakhir yang dimasukkan akan menjadi yang pertama dikeluarkan (prinsip **LIFO**).
 
-### Contoh Dunia Nyata
+### Contoh
 
 * Tumpukan piring di dapur: piring terakhir yang diletakkan akan diambil terlebih dahulu.
 * Fitur *Undo/Redo* di aplikasi teks.
