@@ -4,6 +4,8 @@
 
 Modul **“Belajar Stack di C++”** ini dirancang untuk membantu mahasiswa memahami konsep tumpukan (*stack*) dan implementasinya dalam bahasa C++. Peserta akan belajar bagaimana *stack* bekerja berdasarkan prinsip **LIFO (Last In First Out)**, serta bagaimana menerapkannya dalam berbagai konteks pemrograman.
 
+![stack visualisasi](https://www.mahirkoding.com/wp-content/uploads/2016/12/lifo-stack-push-pop-techwelkin.png)
+
 ---
 
 ## Pendahuluan
