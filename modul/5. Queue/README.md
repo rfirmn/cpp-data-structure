@@ -140,29 +140,113 @@ void dequeue() {
 ### 4. Menggunakan Linked List
 
 ```cpp
+#include <iostream>
+using namespace std;
+
 struct Node {
     int data;
     Node* next;
 };
 
+// pointer front dan rear
 Node *front = nullptr, *rear = nullptr;
 
+// Mengecek apakah queue kosong
+bool isEmpty() {
+    return front == nullptr;
+}
+
+// Menambah elemen ke queue
 void enqueue(int val) {
     Node* temp = new Node{val, nullptr};
-    if (!rear) front = rear = temp;
-    else {
+
+    if (isEmpty()) {
+        front = rear = temp;
+    } else {
         rear->next = temp;
         rear = temp;
     }
 }
 
+// Menghapus elemen dari queue
 void dequeue() {
-    if (!front) return;
+    if (isEmpty()) {
+        cout << "Queue kosong, tidak bisa dequeue.\n";
+        return;
+    }
+
     Node* temp = front;
     front = front->next;
-    if (!front) rear = nullptr;
+
+    if (front == nullptr)
+        rear = nullptr;
+
     delete temp;
 }
+
+// Mengembalikan elemen paling depan tanpa menghapus
+int peek() {
+    if (isEmpty()) {
+        cout << "Queue kosong.\n";
+        return -1;
+    }
+    return front->data;
+}
+
+// Menghitung jumlah elemen
+int size() {
+    int count = 0;
+    Node* curr = front;
+    while (curr) {
+        count++;
+        curr = curr->next;
+    }
+    return count;
+}
+
+// Mencetak isi queue
+void printQueue() {
+    if (isEmpty()) {
+        cout << "Queue kosong.\n";
+        return;
+    }
+
+    Node* curr = front;
+    cout << "Isi Queue: ";
+    while (curr) {
+        cout << curr->data << " ";
+        curr = curr->next;
+    }
+    cout << endl;
+}
+
+// Menghapus semua elemen
+void clear() {
+    while (!isEmpty()) {
+        dequeue();
+    }
+}
+
+int main() {
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+
+    printQueue();   // 10 20 30
+
+    cout << "Front: " << peek() << endl;
+
+    dequeue();
+    printQueue();   // 20 30
+
+    cout << "Size: " << size() << endl;
+
+    clear();
+    printQueue();   // Queue kosong
+
+    return 0;
+}
+
 ```
 
 ✅ Dinamis dan efisien.
