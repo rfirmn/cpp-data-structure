@@ -1,7 +1,3 @@
-Berikut adalah materi Multi Linked List yang telah dikonversi ke dalam bahasa C++ (CPP). Struktur materi dan penjelasan konsep tetap dipertahankan sesuai permintaan, namun kode program disesuaikan dengan sintaks dan paradigma C++.
-
-Pada bagian **Bentuk III-B (Modern)**, terdapat penjelasan tambahan karena C++ menggunakan **STL (Standard Template Library)** seperti `std::map` dan `std::set` untuk meniru perilaku `dictionary` dan `set` pada Python.
-
 -----
 
 ### KONSEP UMUM MULTI LINKED LIST DENGAN RELASI PARENT-CHILD
@@ -18,7 +14,8 @@ Multi Linked List adalah struktur data yang mengizinkan lebih dari satu jenis hu
 
 Satu Parent memiliki banyak Child, satu Child hanya dimiliki oleh satu Parent.
 
-\<img width="1038" height="368" alt="image" src="[https://user-images.githubusercontent.com/13241336/36650938-af7d7db4-1ad8-11e8-8a4d-43d83672f50f.png](https://user-images.githubusercontent.com/13241336/36650938-af7d7db4-1ad8-11e8-8a4d-43d83672f50f.png)" /\>
+<img width="1038" height="368" alt="image" src="https://user-images.githubusercontent.com/13241336/36650938-af7d7db4-1ad8-11e8-8a4d-43d83672f50f.png" />
+
 
 ```cpp
 /**
@@ -270,7 +267,7 @@ int main() {
 
 ### BENTUK II – Relasi 1-N dan M-N Sekaligus (Hybrid)
 
-\<img width="1038" height="368" alt="image" src="[https://github.com/user-attachments/assets/fd30cbc9-aceb-4579-a9f3-0a19b5be5cfa](https://github.com/user-attachments/assets/fd30cbc9-aceb-4579-a9f3-0a19b5be5cfa)" /\>
+<img width="1038" height="368" alt="image" src="https://github.com/user-attachments/assets/fd30cbc9-aceb-4579-a9f3-0a19b5be5cfa" />
 
 ```cpp
 /**
@@ -465,7 +462,7 @@ int main() {
 
 ### BENTUK III-A – Relasi M-N Klasik (Dengan Node Relasi Eksplisit)
 
-\<img width="1071" height="549" alt="image" src="[https://github.com/user-attachments/assets/232b9af6-8a13-42a0-b331-a26360852fc8](https://github.com/user-attachments/assets/232b9af6-8a13-42a0-b331-a26360852fc8)" /\>
+<img width="1071" height="549" alt="image" src="https://github.com/user-attachments/assets/232b9af6-8a13-42a0-b331-a26360852fc8" />
 
 ```cpp
 /**
@@ -673,7 +670,7 @@ int main() {
 
 ### BENTUK III-B – Relasi M-N Modern
 
-\<img width="1064" height="560" alt="image" src="[https://github.com/user-attachments/assets/c37131ab-988e-4fc7-841d-0ffcda2f3822](https://github.com/user-attachments/assets/c37131ab-988e-4fc7-841d-0ffcda2f3822)" /\>
+<img width="1064" height="560" alt="image" src="https://github.com/user-attachments/assets/c37131ab-988e-4fc7-841d-0ffcda2f3822" />
 
 **Penjelasan C++:**
 Bahasa Python memiliki struktur data bawaan `dict` (Hash Map) dan `set`. Di C++, kita menggunakan **STL (Standard Template Library)** yaitu `std::map` (atau `std::unordered_map`) dan `std::set`. Kode di bawah ini mengadaptasi logika Python tersebut menggunakan library standar C++.
